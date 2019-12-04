@@ -136,9 +136,11 @@
     border: 1px solid red;
     border-radius: 10px;
     cursor: pointer;
+    width: 30%;
 }
 
 #cancel{
+    width: 30%;
     font-weight: bold;
     color: grey;
     padding: 10px;
