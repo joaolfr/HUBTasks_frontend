@@ -6,6 +6,16 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    animation: slideIn 1s;
+}
+@media screen and (max-width:600px){
+    .container_navbar{
+        justify-content: space-between;
+    }
+}
+@keyframes slideIn{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 
 #logo{
@@ -29,6 +39,12 @@
     display: flex;
     width: 100%;
     color: #FFF;
+}
+
+@media screen and (max-width:600px){
+    #menu{
+        display: none;
+    }
 }
 
 #btnLogout{

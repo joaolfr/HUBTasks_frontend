@@ -4,6 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    animation: in 1.5s;
+}
+@keyframes in{
+    from{opacity: 0;}
+    to{opacity: 1;}
 }
 .container_login{
     display: flex;
@@ -92,14 +97,65 @@
 
 .edit_modal{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+@keyframes show{
+    from{transform: translateY(-100vh);}
+    to{transform: translateY(0);}
+}
+
+
 #div_modal{
-    height: 30%;
+    display: flex;
+    flex-direction: column;
+    height: 40%;
     width: 40%;
     min-width: 300px;
     background: #f2f2f2;
     padding: 10px;
     border-radius: 10px;
+    animation: show 1s;
+
+}
+#div_modal h2{
+    margin: 5px;
+}
+#div_modal input{
+    /* width: 90%; */
+    flex: 1;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+}
+#div_btn{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+}
+
+#div_modal button{
+    flex: 1;
+    margin: 5px;
+    padding: 5px;
+
+}
+
+#salvar{
+    color: green;
+    border: 1px solid green;
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#cancelar{
+    background: transparent;
+    color: red;
+    border: none;
+    cursor: pointer;
 }

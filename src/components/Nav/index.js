@@ -15,7 +15,7 @@ class Nav extends Component {
             </div>
             <div id="menu">
                
-            Bem vindo ao HUBtasks { this.props.user }, aqui você gerencia suas tarefas de maneira rápida e fácil!
+            Bem vindo ao HUBtasks  <strong style={{margin: "0 0 0 7px"}}> {this.props.user}</strong>, aqui você gerencia suas tarefas de maneira rápida e fácil!
 
             </div>
             <div id="btnLogout" onClick={() => this.props.log_out()}>

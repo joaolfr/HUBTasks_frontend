@@ -101,6 +101,7 @@ class Login extends Component {
               />
               <TextField 
                 id="input" 
+                type="password"
                 value={this.state.password}
                 onChange={password => this.setState({password:password.target.value})}
                 label="Password" 
@@ -119,30 +120,35 @@ class Login extends Component {
               <Modal
                 className="edit_modal"
                 open={this.state.modal}
+                // open="true"
                 onClose={() => this.handleClose()}
               >
                 <div id="div_modal"  >
                   <h2 >New User</h2>
-                  <TextField 
+                  <input 
+                    
                     placeholder="Name"
                     value={this.state.name}
                     onChange={e => this.alteraName(e.target.value)}
                   />
-                  <TextField
+                  <input
                     placeholder="Email"
                     value={this.state.email}
                     onChange={e => this.alteraEmail(e.target.value)}
                     
                   />
-                  <TextField
+                  <input
                     placeholder="Password"
                     type="password"
                     value={this.state.password}
                     onChange={e => this.alteraPassword(e.target.value)}
                     
                   />
-                  <button onClick={() => this.cadastrar()}>Salvar</button>
-                  <button onClick={() => this.handleClose()}>Cancelar</button>
+                  <div id="div_btn">
+                    <button id="salvar" onClick={() => this.cadastrar()}>Salvar</button>
+                    <button id="cancelar" onClick={() => this.handleClose()}>Cancelar</button>
+                  </div>
+                  
 
                 </div>
               </Modal>

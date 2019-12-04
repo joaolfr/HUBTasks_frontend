@@ -187,8 +187,7 @@ function* asyncDeleteTask(action){
 }
 
 export default function* root(){ 
-    console.log(process.env.REACT_API);
-    
+//////uma alterantiva seria o uso do FORK para combinar diversas sagas em diferentes arquivos, para melhor organização //////    
     yield takeLatest('ASYNC_LOG_IN', asyncLogIn)
     yield takeLatest('ASYNC_NEW_USER', asyncNewUser)
 

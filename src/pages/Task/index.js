@@ -20,18 +20,26 @@ class Task extends Component {
     modal_add: false,
     descricao:"",
     data_entrega: "",
+    nova_descricao: "",
+    nova_data_entrega: "",
     task_id:""
   }
 
   //FUNÇÕES DE MANIPULAÇÃO DAS TASKS
   addTask(){
-    const { descricao, data_entrega } = this.state;
+    const { nova_descricao, nova_data_entrega } = this.state;
 
     this.setState({
       modal_add: false
     })
 
-    this.props.add_task(descricao, data_entrega);
+    this.props.add_task(nova_descricao, nova_data_entrega);
+    this.setState({
+      descricao: "",
+      data_entrega: "",
+      nova_descricao: "",
+      nova_data_entrega: ""
+    })
 
   }
   editTask(){
@@ -45,6 +53,12 @@ class Task extends Component {
     console.log(this.state);
     
     this.props.edit_task(task_id, descricao, data_entrega);
+    this.setState({
+      descricao: "",
+      data_entrega: "",
+      nova_descricao: "",
+      nova_data_entrega: ""
+    })
 
   }
 
@@ -90,6 +104,19 @@ class Task extends Component {
 
 
   //ALTERAÇÃO DOS ESTADOS DAS VARIÁVEIS
+  alteraNovaDescricao(descricao){
+    this.setState({
+      nova_descricao:descricao
+    })
+  }
+  alteraNovaData(data){
+    console.log(data);
+    this.setState({
+      nova_data_entrega:data
+    })
+    
+  }
+
   alteraDescricao(descricao){
     this.setState({
       descricao
@@ -109,8 +136,20 @@ renderTasks(){
   return this.props.tasks.map(task => {
     return(
       <div id="card_task" key={task._id}>
-        <div>{task.descricao}</div>
-        <div>{task.data_entrega.slice(0,10)}</div>
+        
+        <div id="info_card">
+          <div id="data_entrega">
+            <p>Task</p>
+            <div>{task.descricao}</div>
+
+          </div>
+
+          <div id="data_entrega">
+            <p>Deadline</p>
+            <div>{task.data_entrega.slice(0,10)}</div>
+
+          </div>
+        </div>
         <EditIcon id="editIcon" onClick={() => this.openEditModal(task)}/>
         <DeleteIcon id="deleteIcon" onClick={() => this.openDeleteModal(task._id)} />
       
@@ -129,31 +168,35 @@ renderTasks(){
           </div>
           {this.renderTasks()}
 
-          {/* EDIT MODAL */}
+          {/* ADD MODAL */}
           <Modal
             className="edit_modal"
+            // open={true}
             open={this.state.modal_add}
             onClose={() => this.handleClose()}
           >
             <div id="div_modal"  >
-              <h2 >Add</h2>
+              <h2 >Add Task</h2>
               <TextField 
                 placeholder="Descrição"
-                value={this.state.descricao}
-                onChange={e => this.alteraDescricao(e.target.value)}
+                value={this.state.nova_descricao}
+                onChange={e => this.alteraNovaDescricao(e.target.value)}
               />
               <TextField
                 id="date"
                 label="Deadline"
                 type="date"
-                value={this.state.data_entrega}
-                onChange={date => this.alteraData(date.target.value)}
+                value={this.state.nova_data_entrega}
+                onChange={date => this.alteraNovaData(date.target.value)}
                 InputLabelProps={{
                   shrink: true,
                 }}
               />
-              <button onClick={() => this.addTask()}>Salvar</button>
-              <button onClick={() => this.handleClose()}>Cancelar</button>
+              <div id="div_btn">
+                <button id="salvar" onClick={() => this.addTask()}>Salvar</button>
+                <button id="cancelar" onClick={() => this.handleClose()}>Cancelar</button>
+              </div>
+              
 
             </div>
           </Modal>
@@ -181,8 +224,11 @@ renderTasks(){
                   shrink: true,
                 }}
               />
-              <button onClick={() => this.editTask()}>Salvar</button>
-              <button onClick={() => this.handleClose()}>Cancelar</button>
+              <div id="div_btn">
+                <button id="salvar"onClick={() => this.editTask()}>Salvar</button>
+                <button id="cancelar" onClick={() => this.handleClose()}>Cancelar</button>
+              </div>
+              
 
             </div>
           </Modal>
@@ -193,11 +239,14 @@ renderTasks(){
             open={this.state.modal_delete}
             onClose={() => this.handleClose()}
           >
-            <div id="div_modal"  >
+            <div id="div_modal_delete"  >
               <p>Você tem certeza que deseja deletar a task?</p>
               
-              <button onClick={() => this.deleteTask()}>Deletar</button>
-              <button onClick={() => this.handleClose()}>Cancelar</button>
+              <div id="div_btn">
+                <button id="remove" onClick={() => this.deleteTask()}>Deletar</button>
+                <button id="cancel" onClick={() => this.handleClose()}>Cancelar</button>
+              </div>
+              
             </div>
           </Modal>
         </div>
