@@ -1,10 +1,11 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects'; 
 import axios from 'axios';
+import api from '../services/api';
 
 import { getUserId } from './selectors';
 
-const base_url = 'http://localhost:3001'
-
+// const base_url = 'http://localhost:3001'
+const base_url = process.env.REACT_API
 
 
 /////////// CONJUNTO DE FUNÇÕES RELACIONADOS AO USUÁRIO /////////
