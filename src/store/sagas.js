@@ -1,11 +1,10 @@
 import { takeLatest, put, call, select } from 'redux-saga/effects'; 
 import axios from 'axios';
-import api from '../services/api';
 
 import { getUserId } from './selectors';
 
 // const base_url = 'http://localhost:3001'
-const base_url = process.env.REACT_API
+const base_url = process.env.REACT_APP_HUBTEC_API;
 
 
 /////////// CONJUNTO DE FUNÇÕES RELACIONADOS AO USUÁRIO /////////
@@ -188,6 +187,7 @@ function* asyncDeleteTask(action){
 }
 
 export default function* root(){ 
+    console.log(process.env.REACT_API);
     
     yield takeLatest('ASYNC_LOG_IN', asyncLogIn)
     yield takeLatest('ASYNC_NEW_USER', asyncNewUser)
