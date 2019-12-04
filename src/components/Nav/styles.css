@@ -1,0 +1,48 @@
+.container_navbar{
+    height: 15%;
+    width: 100%;
+    background: rgb(144, 160, 172);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo{
+    margin: 0 40px 0 40px ;
+}
+
+#logo p{
+    color: rgb(89, 148, 201);
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#logo span{
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(255, 166, 0);
+}
+
+#menu{
+    flex:1;
+    display: flex;
+    width: 100%;
+    color: #FFF;
+}
+
+#btnLogout{
+    /* margin: 20px 0 40px 0; */
+    margin-right: 10px;
+    display: flex;
+    flex-direction: row;
+    color: #FFF;
+    align-items: center;
+}
+#btnLogout:hover{
+    cursor: pointer;
+}
+
+#logout-icon{
+    height: 90px;
+}
