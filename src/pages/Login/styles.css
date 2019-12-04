@@ -1,0 +1,105 @@
+.container_screen{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container_login{
+    display: flex;
+    height: 50%;
+    width: 20%;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    /* background: rgb(207, 206, 206); */
+    min-width: 350px ;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.container_login p{
+    color: rgb(89, 148, 201);
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.container_login span{
+    font-weight: 200;
+    font-style: italic;
+    color: orange;
+}
+
+.toast{
+    color: #FFF;
+    height: 40px;
+    background: rgb(179, 68, 68);
+}
+/* .body_toast{
+    background: rgb(211, 114, 122);
+} */
+.toast_progress{
+    background: rgb(207, 160, 160);
+}
+
+.container_inputs{
+    flex: 1;
+    width: 100%;
+    /* background: red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+
+.container_inputs input{
+    /* padding: 10px 5px; */
+    /* margin: 10px; */
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+
+}
+
+.container_inputs button{
+    color: #FFF;
+    background: rgb(89, 148, 201);
+    padding: 10px;
+    margin: 60px 0 0 0 ;
+    border: none;
+    border-radius: 10px;
+}
+
+.container_inputs button:hover{
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+#cadastrar{
+    font-size: 15px;
+}
+#signUp{
+    color: black;
+    font-style: normal;
+    font-weight: bold;
+    text-decoration: underline;
+}
+#signUp:hover{
+    cursor: pointer;
+}
+
+.edit_modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#div_modal{
+    height: 30%;
+    width: 40%;
+    min-width: 300px;
+    background: #f2f2f2;
+    padding: 10px;
+    border-radius: 10px;
+}
