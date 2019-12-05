@@ -85,6 +85,14 @@
 #cadastrar{
     font-size: 15px;
 }
+
+#div_loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 #signUp{
     color: black;
     font-style: normal;

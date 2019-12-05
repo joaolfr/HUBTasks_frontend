@@ -24,6 +24,7 @@ function getUser(user){
 function* asyncLogIn(action){
 
     try{
+        yield put({ type:'LOADER'})
         const response = yield call(getUser, action.payload);        
 
         yield put({ type: 'LOG_IN', payload: response.data});

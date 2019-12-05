@@ -5,6 +5,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Modal from '@material-ui/core/Modal';
 import TextField from '@material-ui/core/TextField';
+import { BallBeat } from 'react-pure-loaders';
 
 import * as AuthActions from '../../actions/Auth';
 import './styles.css';
@@ -112,7 +113,20 @@ class Login extends Component {
                 }}
               />
 
-              <button onClick={() => this.logIn()}>Sign IN</button>
+              {this.props.loader?(
+                 <div id="div_loader">
+                  <BallBeat		 
+                    color={'#000'}
+                    loading={this.props.loader}
+                  />
+                 </div>
+              ):(
+                <button onClick={() => this.logIn()}>Sign IN</button>
+              )
+
+              }
+             
+
               <p id="cadastrar">New user? <span id="signUp" onClick={() => this.openModal()}>SIGN UP!</span></p>
               <ToastContainer autoClose={3000} />
 
@@ -164,7 +178,8 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
   isLogged: state.Auth.isLogged,  
-  message: state.Auth.message
+  message: state.Auth.message,
+  loader: state.Auth.loader
 });
 
 const  mapDispatchToProps = dispatch =>
