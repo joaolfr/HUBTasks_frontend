@@ -3,7 +3,7 @@ const INITAL_STATE = {
     message: "",
     user: "",
     id: "",
-    loader:true
+    loader:false
 }
 
 export default function Auth(state= INITAL_STATE, action){
